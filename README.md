@@ -31,3 +31,6 @@ A: The documents should be in PDF format if possible and should have meaningful 
 Who will handle the deployment and putting things together? 
 
 A: Team 404 not found will handle deployment and main branch merging, make sure to let us know when it is in deployment phase and we can test it 
+
+
+okok
