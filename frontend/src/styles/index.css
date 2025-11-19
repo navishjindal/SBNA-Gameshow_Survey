@@ -1,1 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://db.onlinewebfonts.com/c/7e96eba370659b4e4563309dc4ebb33f?family=Samarkan+Normal+V2");
+
+/* Light Mode Variables Only */
+:root {
+  /* Primary Color Changed to Provided Color */
+  --primary: #f2d2b6;
+  --primary-dark: #dcbea5;
+  --primary-light: #fadcc3;
+  --primary-lighter: #f5d7be;
+
+  /* Saffron/Gold Colors */
+  --secondary: #f5c800;
+  --secondary-light: #ffec97;
+  --secondary-dark: #dfa800;
+  --accent: #f39800;
+  --success: rgba(242, 210, 182, 1);
+  --warning: #f14c11;
+
+  /* Survey Layout colours */
+  --survey-bg: #f5c800;
+
+  /* Header specific colors */
+  --header-bg: #f2d2b6;
+  --header-primary: #ff4500;
+  --header-subtitle: #ffffff;
+  --header-accent: #f5c800;
+
+  /* Header button colours */
+  --btn-active-text: #ffffff;
+  --btn-inactive-text: #2563eb;
+  --btn-inactive-hover-bg: #e4fdf2;
+  --btn-inactive-hover-border: #6ee7b7;
+
+  --btn-analytics-bg: #eef2ff;
+  --btn-analytics-text: #2a1fa3;
+  --btn-analytics-hover-bg: #c7d2fe;
+  --btn-analytics-hover-border: #a5b4fc;
+
+  --btn-ranking-bg: #fff7ed;
+  --btn-ranking-text: #c2410c;
+  --btn-ranking-hover-bg: #ffedd5;
+  --btn-ranking-hover-border: #fdba74;
+
+  --btn-preview-bg: #faf5ff;
+  --btn-preview-text: #7e22ce;
+  --btn-preview-hover-bg: #f3e8ff;
+  --btn-preview-hover-border: #d8b4fe;
+
+  --btn-save-questions-bg: #059669;
+  --btn-save-questions-text: #ffffff;
+  --btn-save-questions-hover-bg: #047857;
+
+  --btn-save-changes-bg: #2563eb;
+  --btn-save-changes-text: #ffffff;
+  --btn-save-changes-hover-bg: #1e40af;
+
+  --btn-logout-bg: #ff0000;
+  --btn-logout-text: #ffffff;
+  --btn-logout-hover-bg: #b91c1c;
+  --btn-logout-hover-border: #fca5a5;
+
+  /* Question Card specific colors */
+  --question-card-bg: #ffffff;
+  --question-card-text: #000000;
+  --btn-next-bg: #2563eb;
+  --btn-next-text: #ffffff;
+  --btn-next-hover-bg: #1e40af;
+  --btn-delete-question-bg: #ff0000;
+  --btn-delete-question-text: #ffffff;
+  --btn-delete-question-hover-bg: #b91c1c;
+  --btn-delete-question-hover-text: #ffffff;
+
+  /* Admin Sidebar specific colors */
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #000000;
+  --active-level-tab-bg: #ffffff;
+  --active-level-tab-text: #000000;
+  --inactive-level-tab-bg: #f3f4f6;
+  --inactive-level-tab-text: #6b7280;
+  --progress-text: #000000;
+  --progress-number: #2563eb;
+  --progress-bar-from: #042aff;
+  --progress-bar-to: #5a89f0;
+  --levelquestion-active-bg: #aee3f8;
+  --levelquestion-active-border: #ff4500;
+  --btn-delete-all-questions-bg: #fee2e2;
+  --btn-delete-all-questions-text: #dc2626;
+  --btn-delete-all-questions-hover-bg: #fecaca;
+  --question-bank-text: #000000;
+
+  /* Login page, Proficiency modal specific colors */
+  --login-bg: #ffec97;
+  --login-card-bg: #ffffff;
+  --login-active-text: #ffffff;
+  --login-nonactive-text: #656565;
+  --login-nonactive-bg: #ededed;
+  --login-primary: #ff4500;
+  --login-input-border: #9a9a9a;
+  --login-checkbox-border: #9a9a9a;
+  --login-focus-border: #ff4500;
+  --login-checkbox-text: #000000;
+  --login-button-bg: #ff4500;
+  --login-button-hover: #f5c800;
+  --login-button-text: #ffffff;
+  --login-error-text: #ff4500;
+  --login-error-bg: #f4e792;
+  --login-error-border: #ff0000;
+  --login-welcome-text: #000000;
+
+  /* Proficiency modal specific colors */
+  --proficiency-bg: #ffec97;
+  --proficiency-card-bg: #ffffff;
+  --proficiency-primary: #ff4500;
+  --proficiency-active-text: #ffffff;
+  --proficiency-level-text: #ff4500;
+  --proficiency-hover: #f5c800;
+  --proficiency-confirm-bg: #ff4500;
+  --proficiency-confirm-text: #ffffff;
+
+  /*Not found page*/
+  --notfound-bg: #ffec97;
+  --notfound-primary: #ff4500;
+  --notfound-hover: #f5c800;
+  --notfound-text: #000000;
+  --notfound-button-text: #ffffff;
+
+  /*Logout prompt*/
+  --logout-card-bg: #ffffff;
+  --logout-primary: #ff4500;
+  --logout-hover: #f5c800;
+  --logout-text: #000000;
+  --logout-button-text: #ffffff;
+  --logout-cancel-text: #000000;
+  --logout-cancel-bg: #d8d8d8f7;
+  --logout-cancel-hover: #adadad;
+
+  /*Update Survey*/
+  --update-card-bg: #ffffff;
+  --update-primary: #ff4500;
+  --update-text: #000000;
+  --update-button-bg: #ff4500;
+  --update-button-hover: #f5c800;
+  --update-button-text: #ffffff;
+  --update-cancel-bg: #d8d8d8f7;
+  --update-cancel-hover: #adadad;
+  --update-cancel-text: #000000;
+
+  /* Analytics Page */
+  --analytics-bg: #f5c800;
+  --button-refresh-responses-back: #ff4500;
+  --responses-bg: #f5c800;
+
+  /* Admin database connection lost */
+  --adminlost-bg: #f5c800;
+  --adminlost-connection-issue: #ff0000;
+  --adminlost-card-bg: #ffffff;
+  --adminlost-icon: #ff4500;
+  --adminlost-icon-bg: #f5e1e1;
+  --adminlost-beginner-bg: #fcd93c;
+  --adminlost-intermediate-bg: #f39800;
+  --adminlost-advanced-bg: #ff0000;
+
+  /*Error Alert*/
+  --error-bg: #fee6e6;
+  --error-border: #ff0000;
+  --error-text: #ff0000;
+  --error-dismiss-text: #fe3434;
+  --error-dismiss-hover: #ef9b1e;
+
+  /*User Card Overlay*/
+  --usercard-bg: #ffffff;
+  --user-card-border: #f2d2b6;
+  --user-logout-color: #ff0000;
+  --user-logout-hover: #ff4500;
+
+  /* User Text Area*/
+  --user-textarea-border: #f2d2b6;
+  --user-textarea-focus: #ff4500;
+  --user-textarea-bg: rgba(255, 255, 255, 0.5);
+  --user-textarea-recording-bg: rgba(254, 226, 226, 0.3);
+  --user-textarea-recording-border: #fca5a5;
+
+  /* User-Speak-btn*/
+  --user-btn-speak-from: #ff4500;
+  --user-btn-speak-to: #f39800;
+  --user-btn-speak-hover-from: #f5c800;
+  --user-btn-speak-hover-to: #f39800;
+
+  /* User-Save-btn*/
+  --user-btn-save-from: #ff4500;
+  --user-btn-save-to: #f39800;
+  --user-btn-save-hover-from: #f5c800;
+  --user-btn-save-hover-to: #dfa800;
+
+  /* User-Skip-btn*/
+  --user-btn-skip-bg: #f3f4f6;
+  --user-btn-skip-text: #6b7280;
+  --user-btn-skip-hover: #e5e7eb;
+  --user-btn-skip-active-bg: #fef3c7;
+  --user-btn-skip-active-text: #92400e;
+  --user-btn-skip-active-hover: #fde68a;
+
+  /* TTS play-stop-loading */
+  --user-tts-play-bg: #ff4500;
+  --user-tts-play-hover: #f39800;
+  --user-tts-stop-bg: #ef4444;
+  --user-tts-stop-hover: #dc2626;
+  --user-tts-loading-bg: #f5c800;
+
+  /* User Preview colors */
+  --user-preview-border: #f5c800;
+  --user-preview-title: #ff4500;
+  --user-preview-submit-from: #ff4500;
+  --user-preview-submit-to: #f39800;
+
+  /* recording/transcribing */
+  --user-recording-indicator: #ef4444;
+  --user-transcribing-bg: #fef3c7;
+  --user-transcribing-text: #f39800;
+  --user-transcribing-border: #f5c800;
+
+  /* User Survey Page specific colors */
+  --user-survey-bg: #ffec97;
+  --user-survey-loading-spinner-border: #f2d2b6;
+  --user-survey-loading-spinner-top: #ff4500;
+  --user-survey-loading-text: #000000;
+  --user-survey-no-questions-bg: #ffffff;
+  --user-survey-no-questions-icon-bg: #f5d7be;
+  --user-survey-no-questions-icon: #ff4500;
+  --user-survey-no-questions-text: #374151;
+  --user-survey-no-questions-subtext: #6b7280;
+  --user-survey-btn-back-bg: #ff4500;
+  --user-survey-btn-back-hover: #f39800;
+  --user-survey-menu-toggle-bg: #ff4500;
+  --user-survey-menu-toggle-icon: #ffec97;
+  --user-survey-popup-success-bg: #f5d7be;
+  --user-survey-popup-success-icon: #ff4500;
+  --user-survey-popup-error-bg: #fee2e2;
+  --user-survey-popup-error-icon: #dc2626;
+  --user-survey-popup-title-success: #ff4500;
+  --user-survey-popup-title-error: #dc2626;
+  --user-survey-popup-text: #374151;
+  --user-survey-btn-ok-success: #ff4500;
+  --user-survey-btn-ok-success-hover: #f39800;
+  --user-survey-btn-ok-error: #dc2626;
+  --user-survey-btn-ok-error-hover: #b91c1c;
+
+  /* Sidebar specific colors */
+  --sb-bg: #ffffff;
+  --sb-border: #f2d2b6;
+  --sb-text: #000000;
+  --sb-active-bg: #aee3f8;
+  --sb-active-border: #ff4500;
+  --sb-hover-bg: #f5d7be;
+  --sb-progress-bar-from: #e6b800;
+  --sb-progress-bar-to: #e66000;
+  --sb-progress-text: #000000;
+  --sb-indicator-active: #ef4444;
+  --sb-indicator-skip: #f39800;
+  --sb-indicator-border: #f5c800;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+.devanagari-text {
+  font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+}
 
