@@ -74,7 +74,7 @@ function SurveyLayout({
   const safeIndex = Math.min(currentIndex, Math.max(questions.length - 1, 0));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-survey-bg">
       <Header
         completedCount={completedCount}
         totalCount={questions.length}
@@ -178,7 +178,7 @@ function SurveyLayout({
         <PreviewModal
           title={formTitle}
           description={formDescription}
-          questions={questions}
+          questions={Object.values(questionsByLevel).flat()}
           mode={mode}
           onClose={onClosePreview}
           onCreateNew={onCreateNew}
