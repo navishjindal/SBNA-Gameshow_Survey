@@ -96,7 +96,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   const isCategorySelected = () => !!question.questionCategory?.trim();
   const nearLimit = (question.question?.length || 0) > 450;
-  const isQuestionTypeDisabled = Boolean(mode === "edit" && question.questionID);
+  const isQuestionTypeDisabled = Boolean(
+    mode === "edit" && question.questionID
+  );
 
   // Add question button functionality - now using the onAddNext prop
   const handleAddQuestion = () => {
@@ -105,10 +107,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   return (
     <>
-      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 space-y-6">
+      <div className="bg-question-card-bg rounded-2xl shadow-lg border border-gray-100 p-6 space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <h3 className="text-2xl font-bold text-gray-900">
+          <h3 className="text-2xl font-bold text-question-text">
             Question {index + 1}
           </h3>
           <div className="flex items-center gap-2">
@@ -119,18 +121,29 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                 className="p-2 rounded-lg transition-colors text-green-600 hover:bg-green-100 hover:text-green-700 flex items-center gap-1 text-sm font-medium"
                 title="Add another question"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
                 </svg>
                 Add
               </button>
             )}
             <button
+              data-cy="delete-question-button"
               onClick={handleDeleteClick}
-              className="p-2 rounded-lg transition-colors text-red-500 hover:bg-red-100 hover:text-red-600"
+              className="p-2 rounded-lg transition-colors bg-btn-delete-question-bg text-btn-delete-question-text hover:bg-btn-delete-question-hover-bg hover:text-btn-delete-question-hover-text"
               title="Delete this question"
             >
-              <X size={20} />
+              Delete this question
             </button>
           </div>
         </div>
@@ -142,6 +155,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               Category *
             </label>
             <select
+              data-cy="question-category-select"
               value={question.questionCategory || ""}
               onChange={(e) => onUpdate("questionCategory", e.target.value)}
               className="w-full border-2 rounded-xl px-4 py-3 bg-white"
@@ -160,6 +174,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               Level *
             </label>
             <select
+              data-cy="question-level-select"
               value={question.questionLevel || currentTabLevel}
               onChange={(e) => onUpdate("questionLevel", e.target.value)}
               className="w-full border-2 rounded-xl px-4 py-3 bg-white"
@@ -178,6 +193,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               Question Type *
             </label>
             <select
+              data-cy="question-type-select"
               value={question.questionType || "Input"}
               onChange={(e) => onUpdate("questionType", e.target.value)}
               disabled={isQuestionTypeDisabled}
@@ -186,7 +202,11 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                   ? "bg-gray-100 text-gray-500 cursor-not-allowed border-gray-200"
                   : "bg-white hover:border-gray-300"
               }`}
-              title={isQuestionTypeDisabled ? "Question type cannot be changed in edit mode" : ""}
+              title={
+                isQuestionTypeDisabled
+                  ? "Question type cannot be changed in edit mode"
+                  : ""
+              }
             >
               {questionTypes.map((type) => (
                 <option key={type} value={type}>
@@ -216,6 +236,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
             </label>
             <div className="relative">
               <textarea
+                data-cy="question-textarea"
                 rows={question.questionType === "Mcq" ? 6 : 4}
                 value={question.question || ""}
                 onChange={(e) => onUpdate("question", e.target.value)}
@@ -227,7 +248,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                 disabled={!isCategorySelected()}
                 maxLength={500}
                 className={`w-full border-2 rounded-xl p-4 resize-none transition-colors ${
-                  !isCategorySelected() ? "bg-gray-100 text-gray-500" : "bg-white"
+                  !isCategorySelected()
+                    ? "bg-gray-100 text-gray-500"
+                    : "bg-white"
                 }`}
               />
               <span
@@ -254,6 +277,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               {mcqOptions.map((opt, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <input
+                    data-cy={`mcq-option-${i}-input`}
                     type="text"
                     value={opt.answer}
                     onChange={(e) => handleMcqOptionChange(i, e.target.value)}
@@ -261,6 +285,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                     placeholder={`Option ${i + 1}`}
                   />
                   <button
+                    data-cy={`mcq-correct-answer-${i}-button`}
                     onClick={() => handleSetCorrectOption(i)}
                     className={`w-6 h-6 flex items-center justify-center rounded-full transition-colors ${
                       opt.isCorrect
@@ -289,7 +314,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           <button
             onClick={onNext}
             disabled={isLast}
-            className="px-4 py-2 text-sm rounded-lg bg-purple-600 text-white hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 text-sm rounded-lg bg-btn-next-bg text-btn-next-text hover:bg-btn-next-hover-bg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Next
           </button>
@@ -307,16 +332,19 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               Delete Question?
             </h2>
             <p className="text-gray-600 mb-6 text-sm">
-              Are you sure you want to delete this question? This action cannot be undone.
+              Are you sure you want to delete this question? This action cannot
+              be undone.
             </p>
             <div className="flex gap-3">
               <button
+                data-cy="cancel-delete-question-button"
                 onClick={handleCancelDelete}
                 className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
               >
                 Cancel
               </button>
               <button
+                data-cy="confirm-delete-question-button"
                 onClick={handleConfirmDelete}
                 className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
               >
